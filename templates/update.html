@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+    
+    <br><br>
+    <h1 style="text-align: center">Here you can update your contact.</h1>
+    <div class="content" align="center">
+            <br>
+        <form action="/update/{{ contacts.id }}" method="POST">
+            <input type="text" name="name" id="name" value="{{ contacts.name }}">
+            <input type="text" name="number" id="number" value="{{ contacts.number }}">
+            <br><br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+{% endblock content %}

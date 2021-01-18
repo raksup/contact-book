@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+    <br><br>
+    <h1 style="text-align: center">Welcome to my contact book.</h1>
+    <div align="center">
+        <table>
+            <tr>
+                <th style="text-align: center">Name</th>
+                <th style="text-align: center">Number</th>
+                <th style="text-align: center">Added</th>
+                <th style="text-align: center">Actions</th>
+            </tr>
+            {% for contact in contacts %}
+                <tr>
+                    <td>{{ contact.name }}</td>
+                    <td>{{ contact.number }}</td>
+                    <td>{{ contact.date_created.date() }}</td>
+                       <td>
+                            <a href="/update/{{ contact.id }}">Update</a><br>                            
+                            <a href="/delete/{{ contact.id }}">Delete</a>
+                        </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+    </div>
+    <div class="form" align="center">
+        <form action"/" method="POST">
+            <input type="text" name="name" id="name" placeholder="Name">
+            <input type="text" name="number" id="number" placeholder="Phone Number">
+            <br><br>
+            <input type="submit" value="Add Contact">
+        </form>
+    </div>
+{% endblock content %}
+
